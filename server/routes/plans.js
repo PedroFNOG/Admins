@@ -200,7 +200,7 @@ router.delete('/revenda/:id', authenticateToken, requireLevel(['super_admin', 'a
 });
 
 // Buscar planos de revenda ativos
-router.get('/revenda/active', authenticateToken, async (req, res) => {
+router.get('/revenda-active', authenticateToken, async (req, res) => {
   try {
     const [plans] = await pool.execute(
       'SELECT * FROM planos_revenda WHERE ativo = 1 ORDER BY nome'
@@ -396,6 +396,21 @@ router.delete('/streaming/:id', authenticateToken, requireLevel(['super_admin', 
 
 // Buscar planos de streaming ativos
 router.get('/streaming/active', authenticateToken, async (req, res) => {
+  try {
+    const [plans] = await pool.execute(
+      'SELECT * FROM planos_streaming WHERE ativo = 1 ORDER BY nome'
+    );
+
+    res.json(plans);
+
+  } catch (error) {
+    console.error('Erro ao buscar planos ativos:', error);
+    res.status(500).json({ message: 'Erro interno do servidor' });
+  }
+});
+
+// Buscar planos de streaming ativos
+router.get('/streaming-active', authenticateToken, async (req, res) => {
   try {
     const [plans] = await pool.execute(
       'SELECT * FROM planos_streaming WHERE ativo = 1 ORDER BY nome'

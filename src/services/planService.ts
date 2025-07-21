@@ -230,7 +230,7 @@ class PlanService {
   // Buscar planos ativos para seleção
   async getActiveRevendaPlans(): Promise<RevendaPlan[]> {
     try {
-      const response = await fetch(`${this.baseURL}/plans/revenda/active`, {
+      const response = await fetch(`${this.baseURL}/plans/revenda-active`, {
         headers: this.getAuthHeaders(),
       });
 
@@ -246,7 +246,7 @@ class PlanService {
 
   async getActiveStreamingPlans(): Promise<StreamingPlan[]> {
     try {
-      const response = await fetch(`${this.baseURL}/plans/streaming/active`, {
+      const response = await fetch(`${this.baseURL}/plans/streaming-active`, {
         headers: this.getAuthHeaders(),
       });
 

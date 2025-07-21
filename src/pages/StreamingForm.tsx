@@ -109,7 +109,7 @@ export const StreamingForm: React.FC = () => {
         addNotification({
           type: 'success',
           title: 'Sucesso',
-          espaco: plan.espaco_ftp
+          message: 'Streaming criada com sucesso.'
         });
       } else {
         await streamingService.createStreaming(formData);
@@ -161,7 +161,7 @@ export const StreamingForm: React.FC = () => {
         plano_id: plan.codigo,
         espectadores: plan.espectadores,
         bitrate: plan.bitrate,
-        espaco_ftp: plan.espaco_ftp
+        espaco: plan.espaco_ftp
       }));
     } else {
       setFormData(prev => ({
@@ -354,7 +354,7 @@ export const StreamingForm: React.FC = () => {
           {formData.plano_id && (
             <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <p className="text-sm text-blue-800">
-                <strong>Plano selecionado:</strong> Os recursos foram preenchidos automaticamente com base no plano escolhido.
+                <strong>Plano selecionado:</strong> {plans.find(p => p.codigo === formData.plano_id)?.nome} - Os recursos foram preenchidos automaticamente com base no plano escolhido.
                 Você pode ajustá-los conforme necessário.
               </p>
             </div>

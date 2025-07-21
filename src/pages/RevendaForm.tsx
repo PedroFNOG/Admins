@@ -167,6 +167,7 @@ export const RevendaForm: React.FC = () => {
       }));
     }
   };
+
   if (loading && id) {
     return (
       <div className="space-y-6">
@@ -210,6 +211,7 @@ export const RevendaForm: React.FC = () => {
                 { value: '', label: 'Sem plano (personalizado)' },
                 ...plans.map(p => ({ value: p.codigo.toString(), label: p.nome }))
               ]}
+              helperText="Selecione um plano para preencher automaticamente os recursos"
             />
             <Input
               label="Nome *"
@@ -308,7 +310,7 @@ export const RevendaForm: React.FC = () => {
           {formData.plano_id && (
             <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <p className="text-sm text-blue-800">
-                <strong>Plano selecionado:</strong> Os recursos foram preenchidos automaticamente com base no plano escolhido.
+                <strong>Plano selecionado:</strong> {plans.find(p => p.codigo === formData.plano_id)?.nome} - Os recursos foram preenchidos automaticamente com base no plano escolhido.
                 Você pode ajustá-los conforme necessário.
               </p>
             </div>
