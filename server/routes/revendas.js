@@ -86,7 +86,7 @@ router.post('/', authenticateToken, requireLevel(['super_admin', 'admin']), asyn
       nome, email, telefone, senha, streamings, espectadores, bitrate, espaco,
       subrevendas, status_detalhado, data_expiracao, observacoes_admin,
       limite_uploads_diario, espectadores_ilimitado, bitrate_maximo,
-      dominio_padrao, idioma_painel, url_suporte
+      dominio_padrao, idioma_painel, url_suporte, plano_id
     } = req.body;
 
     // Verificar se email já existe
@@ -128,15 +128,15 @@ router.post('/', authenticateToken, requireLevel(['super_admin', 'admin']), asyn
         bitrate, espaco, subrevendas, chave_api, status, data_cadastro, dominio_padrao,
         idioma_painel, tipo, ultimo_acesso_data, ultimo_acesso_ip, admin_criador,
         data_expiracao, status_detalhado, observacoes_admin, limite_uploads_diario,
-        espectadores_ilimitado, bitrate_maximo, url_suporte, codigo_wowza_servidor
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        espectadores_ilimitado, bitrate_maximo, url_suporte, codigo_wowza_servidor, plano_id
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         0, id, nome, email, telefone, senhaHash, streamings, espectadores,
         bitrate, espaco, subrevendas, chaveApi, 1, dominio_padrao,
         idioma_painel, 1, '0.0.0.0', req.admin.codigo,
         data_expiracao || null, status_detalhado, observacoes_admin,
         limite_uploads_diario, espectadores_ilimitado ? 1 : 0, bitrate_maximo,
-        url_suporte, servidorPadrao
+        url_suporte, servidorPadrao, plano_id || null
       ]
     );
 
@@ -170,7 +170,7 @@ router.put('/:id', authenticateToken, requireLevel(['super_admin', 'admin']), as
       nome, email, telefone, senha, streamings, espectadores, bitrate, espaco,
       subrevendas, status_detalhado, data_expiracao, observacoes_admin,
       limite_uploads_diario, espectadores_ilimitado, bitrate_maximo,
-      dominio_padrao, idioma_painel, url_suporte
+      dominio_padrao, idioma_painel, url_suporte, plano_id
     } = req.body;
 
     let updateQuery = `
@@ -179,14 +179,14 @@ router.put('/:id', authenticateToken, requireLevel(['super_admin', 'admin']), as
         bitrate = ?, espaco = ?, subrevendas = ?, status_detalhado = ?,
         data_expiracao = ?, observacoes_admin = ?, limite_uploads_diario = ?,
         espectadores_ilimitado = ?, bitrate_maximo = ?, dominio_padrao = ?,
-        idioma_painel = ?, url_suporte = ?, data_ultima_atualizacao = NOW()
+        idioma_painel = ?, url_suporte = ?, plano_id = ?, data_ultima_atualizacao = NOW()
     `;
 
     let params = [
       nome, email, telefone, streamings, espectadores, bitrate, espaco,
       subrevendas, status_detalhado, data_expiracao || null, observacoes_admin,
       limite_uploads_diario, espectadores_ilimitado ? 1 : 0, bitrate_maximo,
-      dominio_padrao, idioma_painel, url_suporte
+      dominio_padrao, idioma_painel, url_suporte, plano_id || null
     ];
 
     // Se senha foi fornecida, incluir na atualização
