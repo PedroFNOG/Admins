@@ -88,50 +88,50 @@ export const Dashboard: React.FC = () => {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+        <Card className="bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 text-white border-0 hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-blue-100 text-sm font-medium">Total de Revendas</p>
-              <p className="text-3xl font-bold">{formatNumber(stats?.totalRevendas || 0)}</p>
+              <p className="text-blue-100 text-sm font-semibold uppercase tracking-wide">Total de Revendas</p>
+              <p className="text-4xl font-bold mt-2">{formatNumber(stats?.totalRevendas || 0)}</p>
             </div>
-            <div className="bg-blue-400 bg-opacity-30 rounded-full p-3">
-              <Users size={24} />
+            <div className="bg-white bg-opacity-20 rounded-2xl p-4 backdrop-blur-sm">
+              <Users size={32} />
             </div>
           </div>
         </Card>
 
-        <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
+        <Card className="bg-gradient-to-br from-green-500 via-green-600 to-emerald-600 text-white border-0 hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-green-100 text-sm font-medium">Revendas Ativas</p>
-              <p className="text-3xl font-bold">{formatNumber(stats?.revendasAtivas || 0)}</p>
+              <p className="text-green-100 text-sm font-semibold uppercase tracking-wide">Revendas Ativas</p>
+              <p className="text-4xl font-bold mt-2">{formatNumber(stats?.revendasAtivas || 0)}</p>
             </div>
-            <div className="bg-green-400 bg-opacity-30 rounded-full p-3">
-              <UserPlus size={24} />
+            <div className="bg-white bg-opacity-20 rounded-2xl p-4 backdrop-blur-sm">
+              <UserPlus size={32} />
             </div>
           </div>
         </Card>
 
-        <Card className="bg-gradient-to-r from-purple-500 to-purple-600 text-white">
+        <Card className="bg-gradient-to-br from-purple-500 via-purple-600 to-pink-600 text-white border-0 hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-purple-100 text-sm font-medium">Total Streamings</p>
-              <p className="text-3xl font-bold">{formatNumber(stats?.totalStreamings || 0)}</p>
+              <p className="text-purple-100 text-sm font-semibold uppercase tracking-wide">Total Streamings</p>
+              <p className="text-4xl font-bold mt-2">{formatNumber(stats?.totalStreamings || 0)}</p>
             </div>
-            <div className="bg-purple-400 bg-opacity-30 rounded-full p-3">
-              <Activity size={24} />
+            <div className="bg-white bg-opacity-20 rounded-2xl p-4 backdrop-blur-sm">
+              <Activity size={32} />
             </div>
           </div>
         </Card>
 
-        <Card className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+        <Card className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-500 text-white border-0 hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-orange-100 text-sm font-medium">Streamings Ativas</p>
-              <p className="text-3xl font-bold">{formatNumber(stats?.streamingsAtivas || 0)}</p>
+              <p className="text-orange-100 text-sm font-semibold uppercase tracking-wide">Streamings Ativas</p>
+              <p className="text-4xl font-bold mt-2">{formatNumber(stats?.streamingsAtivas || 0)}</p>
             </div>
-            <div className="bg-orange-400 bg-opacity-30 rounded-full p-3">
-              <Activity size={24} />
+            <div className="bg-white bg-opacity-20 rounded-2xl p-4 backdrop-blur-sm">
+              <Activity size={32} />
             </div>
           </div>
         </Card>
@@ -140,63 +140,67 @@ export const Dashboard: React.FC = () => {
       {/* Additional Stats */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900">Recursos Utilizados</h3>
-            <Database className="text-gray-400" size={20} />
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-gray-900">Recursos Utilizados</h3>
+            <div className="p-3 bg-blue-50 rounded-xl">
+              <Database className="text-blue-600" size={24} />
+            </div>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-5">
             <div className="flex items-center justify-between">
-              <span className="text-gray-600">Espectadores Conectados</span>
-              <span className="font-semibold">{formatNumber(stats?.espectadoresConectados || 0)}</span>
+              <span className="text-gray-600 font-medium">Espectadores Conectados</span>
+              <span className="font-bold text-lg text-gray-900">{formatNumber(stats?.espectadoresConectados || 0)}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-gray-600">Espaço Usado (Streamings)</span>
-              <span className="font-semibold">{formatBytes((stats?.espacoUsadoStreamings || 0) * 1024 * 1024)}</span>
+              <span className="text-gray-600 font-medium">Espaço Usado (Streamings)</span>
+              <span className="font-bold text-lg text-gray-900">{formatBytes((stats?.espacoUsadoStreamings || 0) * 1024 * 1024)}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-gray-600">Bitrate Total (Streamings)</span>
-              <span className="font-semibold">{formatNumber(stats?.totalBitrateStreamings || 0)} kbps</span>
+              <span className="text-gray-600 font-medium">Bitrate Total (Streamings)</span>
+              <span className="font-bold text-lg text-gray-900">{formatNumber(stats?.totalBitrateStreamings || 0)} kbps</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-gray-600">Capacidade Total Espectadores</span>
-              <span className="font-semibold">{formatNumber(stats?.totalEspectadoresStreamings || 0)}</span>
+              <span className="text-gray-600 font-medium">Capacidade Total Espectadores</span>
+              <span className="font-bold text-lg text-gray-900">{formatNumber(stats?.totalEspectadoresStreamings || 0)}</span>
             </div>
           </div>
         </Card>
 
         <Card>
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900">Status dos Serviços</h3>
-            <TrendingUp className="text-gray-400" size={20} />
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-gray-900">Status dos Serviços</h3>
+            <div className="p-3 bg-green-50 rounded-xl">
+              <TrendingUp className="text-green-600" size={24} />
+            </div>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-gray-600">Revendas Ativas</span>
+                <div className="w-4 h-4 bg-green-500 rounded-full shadow-lg"></div>
+                <span className="text-gray-600 font-medium">Revendas Ativas</span>
               </div>
-              <span className="font-semibold">{formatNumber(stats?.revendasAtivas || 0)}</span>
+              <span className="font-bold text-lg text-gray-900">{formatNumber(stats?.revendasAtivas || 0)}</span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <span className="text-gray-600">Revendas Suspensas</span>
+                <div className="w-4 h-4 bg-yellow-500 rounded-full shadow-lg"></div>
+                <span className="text-gray-600 font-medium">Revendas Suspensas</span>
               </div>
-              <span className="font-semibold">{formatNumber(stats?.revendasSuspensas || 0)}</span>
+              <span className="font-bold text-lg text-gray-900">{formatNumber(stats?.revendasSuspensas || 0)}</span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                <span className="text-gray-600">Streamings Ativas</span>
+                <div className="w-4 h-4 bg-purple-500 rounded-full shadow-lg"></div>
+                <span className="text-gray-600 font-medium">Streamings Ativas</span>
               </div>
-              <span className="font-semibold">{formatNumber(stats?.streamingsAtivas || 0)}</span>
+              <span className="font-bold text-lg text-gray-900">{formatNumber(stats?.streamingsAtivas || 0)}</span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                <span className="text-gray-600">Streamings Inativas</span>
+                <div className="w-4 h-4 bg-gray-500 rounded-full shadow-lg"></div>
+                <span className="text-gray-600 font-medium">Streamings Inativas</span>
               </div>
-              <span className="font-semibold">{formatNumber(stats?.streamingsInativas || 0)}</span>
+              <span className="font-bold text-lg text-gray-900">{formatNumber(stats?.streamingsInativas || 0)}</span>
             </div>
           </div>
         </Card>
@@ -204,40 +208,40 @@ export const Dashboard: React.FC = () => {
 
       {/* Quick Actions */}
       <Card>
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">Ações Rápidas</h3>
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-xl font-bold text-gray-900">Ações Rápidas</h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button className="p-4 text-left border rounded-lg hover:bg-gray-50 transition-colors">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <button className="p-6 text-left border-2 border-gray-200 rounded-2xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:border-blue-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
             <div className="flex items-center space-x-3">
-              <div className="bg-blue-100 p-2 rounded-lg">
-                <UserPlus className="text-blue-600" size={20} />
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-xl text-white shadow-lg">
+                <UserPlus className="text-white" size={24} />
               </div>
               <div>
-                <p className="font-medium">Nova Revenda</p>
-                <p className="text-sm text-gray-600">Criar nova conta de revenda</p>
+                <p className="font-bold text-gray-900">Nova Revenda</p>
+                <p className="text-sm text-gray-600 mt-1">Criar nova conta de revenda</p>
               </div>
             </div>
           </button>
-          <button className="p-4 text-left border rounded-lg hover:bg-gray-50 transition-colors">
+          <button className="p-6 text-left border-2 border-gray-200 rounded-2xl hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:border-green-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
             <div className="flex items-center space-x-3">
-              <div className="bg-green-100 p-2 rounded-lg">
-                <Activity className="text-green-600" size={20} />
+              <div className="bg-gradient-to-r from-green-500 to-emerald-600 p-3 rounded-xl text-white shadow-lg">
+                <Activity className="text-white" size={24} />
               </div>
               <div>
-                <p className="font-medium">Monitorar Sistema</p>
-                <p className="text-sm text-gray-600">Verificar status dos serviços</p>
+                <p className="font-bold text-gray-900">Monitorar Sistema</p>
+                <p className="text-sm text-gray-600 mt-1">Verificar status dos serviços</p>
               </div>
             </div>
           </button>
-          <button className="p-4 text-left border rounded-lg hover:bg-gray-50 transition-colors">
+          <button className="p-6 text-left border-2 border-gray-200 rounded-2xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:border-purple-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
             <div className="flex items-center space-x-3">
-              <div className="bg-purple-100 p-2 rounded-lg">
-                <Server className="text-purple-600" size={20} />
+              <div className="bg-gradient-to-r from-purple-500 to-pink-600 p-3 rounded-xl text-white shadow-lg">
+                <Server className="text-white" size={24} />
               </div>
               <div>
-                <p className="font-medium">Gerenciar Servidores</p>
-                <p className="text-sm text-gray-600">Configurar servidores de streaming</p>
+                <p className="font-bold text-gray-900">Gerenciar Servidores</p>
+                <p className="text-sm text-gray-600 mt-1">Configurar servidores de streaming</p>
               </div>
             </div>
           </button>

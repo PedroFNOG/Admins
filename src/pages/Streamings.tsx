@@ -403,50 +403,50 @@ export const Streamings: React.FC = () => {
                     </div>
                   </TableCell>
                   <TableCell>
-                    <div className="flex items-center space-x-1">
+                    <div className="flex items-center space-x-2 flex-wrap gap-1">
                       {hasPermission('streamings', 'controlar') && (
                         streaming.status === 'ativo' ? (
                           <button
                             onClick={() => handleStop(streaming.codigo)}
-                            className="text-red-600 hover:text-red-800"
+                            className="p-2 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 hover:text-red-700 transition-all duration-200 hover:scale-110"
                             title="Parar"
                           >
-                            <Square size={14} />
+                            <Square size={16} />
                           </button>
                         ) : (
                           <button
                             onClick={() => handleStart(streaming.codigo)}
-                            className="text-green-600 hover:text-green-800"
+                            className="p-2 rounded-lg bg-green-50 text-green-600 hover:bg-green-100 hover:text-green-700 transition-all duration-200 hover:scale-110"
                             title="Iniciar"
                           >
-                            <Play size={14} />
+                            <Play size={16} />
                           </button>
                         )
                       )}
                       {hasPermission('streamings', 'controlar') && (
                         <button
                           onClick={() => handleRestart(streaming.codigo)}
-                          className="text-blue-600 hover:text-blue-800"
+                          className="p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:scale-110"
                           title="Reiniciar"
                         >
-                          <RotateCcw size={14} />
+                          <RotateCcw size={16} />
                         </button>
                       )}
                       {hasPermission('streamings', 'editar') && (
                         <Link
                           to={`/streamings/${streaming.codigo}/editar`}
-                          className="text-gray-600 hover:text-gray-800"
+                          className="p-2 rounded-lg bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-700 transition-all duration-200 hover:scale-110"
                           title="Editar"
                         >
-                          <Edit size={14} />
+                          <Edit size={16} />
                         </Link>
                       )}
                       <button
                         onClick={() => handleViewViewers(streaming)}
-                        className="text-purple-600 hover:text-purple-800"
+                        className="p-2 rounded-lg bg-purple-50 text-purple-600 hover:bg-purple-100 hover:text-purple-700 transition-all duration-200 hover:scale-110"
                         title="Ver Espectadores"
                       >
-                        <Users size={14} />
+                        <Users size={16} />
                       </button>
                       {hasPermission('streamings', 'editar') && (
                         <button
@@ -454,44 +454,44 @@ export const Streamings: React.FC = () => {
                             setSelectedStreaming(streaming);
                             setShowPasswordModal(true);
                           }}
-                          className="text-orange-600 hover:text-orange-800"
+                          className="p-2 rounded-lg bg-orange-50 text-orange-600 hover:bg-orange-100 hover:text-orange-700 transition-all duration-200 hover:scale-110"
                           title="Alterar Senha"
                         >
-                          <Key size={14} />
+                          <Key size={16} />
                         </button>
                       )}
                       {hasPermission('streamings', 'controlar') && (
                         <button
                           onClick={() => handleSync(streaming.codigo)}
-                          className="text-indigo-600 hover:text-indigo-800"
+                          className="p-2 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-100 hover:text-indigo-700 transition-all duration-200 hover:scale-110"
                           title="Sincronizar"
                         >
-                          <RefreshCw size={14} />
+                          <RefreshCw size={16} />
                         </button>
                       )}
                       <button
                         onClick={() => handleAccessPanel(streaming)}
-                        className="text-cyan-600 hover:text-cyan-800"
+                        className="p-2 rounded-lg bg-cyan-50 text-cyan-600 hover:bg-cyan-100 hover:text-cyan-700 transition-all duration-200 hover:scale-110"
                         title="Acessar Painel"
                       >
-                        <ExternalLink size={14} />
+                        <ExternalLink size={16} />
                       </button>
                       {hasPermission('streamings', 'controlar') && (
                         streaming.status === 'bloqueado' ? (
                           <button
                             onClick={() => handleUnblock(streaming.codigo)}
-                            className="text-green-600 hover:text-green-800"
+                            className="p-2 rounded-lg bg-green-50 text-green-600 hover:bg-green-100 hover:text-green-700 transition-all duration-200 hover:scale-110"
                             title="Desbloquear"
                           >
-                            <Unlock size={14} />
+                            <Unlock size={16} />
                           </button>
                         ) : (
                           <button
                             onClick={() => handleBlock(streaming.codigo)}
-                            className="text-yellow-600 hover:text-yellow-800"
+                            className="p-2 rounded-lg bg-yellow-50 text-yellow-600 hover:bg-yellow-100 hover:text-yellow-700 transition-all duration-200 hover:scale-110"
                             title="Bloquear"
                           >
-                            <Lock size={14} />
+                            <Lock size={16} />
                           </button>
                         )
                       )}
@@ -501,10 +501,10 @@ export const Streamings: React.FC = () => {
                             setSelectedStreaming(streaming);
                             setShowDeleteModal(true);
                           }}
-                          className="text-red-600 hover:text-red-800"
+                          className="p-2 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 hover:text-red-700 transition-all duration-200 hover:scale-110"
                           title="Excluir"
                         >
-                          <Trash2 size={14} />
+                          <Trash2 size={16} />
                         </button>
                       )}
                     </div>

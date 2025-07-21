@@ -273,36 +273,36 @@ export const Revendas: React.FC = () => {
                           setSelectedRevenda(revenda);
                           setShowDetailsModal(true);
                         }}
-                        className="text-blue-600 hover:text-blue-800"
+                        className="p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:scale-110"
                         title="Ver detalhes"
                       >
-                        <Eye size={16} />
+                        <Eye size={18} />
                       </button>
                       {hasPermission('revendas', 'editar') && (
                         <Link
                           to={`/revendas/${revenda.codigo}/editar`}
-                          className="text-gray-600 hover:text-gray-800"
+                          className="p-2 rounded-lg bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-700 transition-all duration-200 hover:scale-110"
                           title="Editar"
                         >
-                          <Edit size={16} />
+                          <Edit size={18} />
                         </Link>
                       )}
                       {hasPermission('revendas', 'suspender') && (
                         revenda.status_detalhado === 'ativo' ? (
                           <button
                             onClick={() => handleSuspend(revenda.codigo)}
-                            className="text-yellow-600 hover:text-yellow-800"
+                            className="p-2 rounded-lg bg-yellow-50 text-yellow-600 hover:bg-yellow-100 hover:text-yellow-700 transition-all duration-200 hover:scale-110"
                             title="Suspender"
                           >
-                            <Pause size={16} />
+                            <Pause size={18} />
                           </button>
                         ) : hasPermission('revendas', 'ativar') && (
                           <button
                             onClick={() => handleActivate(revenda.codigo)}
-                            className="text-green-600 hover:text-green-800"
+                            className="p-2 rounded-lg bg-green-50 text-green-600 hover:bg-green-100 hover:text-green-700 transition-all duration-200 hover:scale-110"
                             title="Ativar"
                           >
-                            <Play size={16} />
+                            <Play size={18} />
                           </button>
                         )
                       )}
@@ -312,10 +312,10 @@ export const Revendas: React.FC = () => {
                             setSelectedRevenda(revenda);
                             setShowDeleteModal(true);
                           }}
-                          className="text-red-600 hover:text-red-800"
+                          className="p-2 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 hover:text-red-700 transition-all duration-200 hover:scale-110"
                           title="Excluir"
                         >
-                          <Trash2 size={16} />
+                          <Trash2 size={18} />
                         </button>
                       )}
                     </div>
